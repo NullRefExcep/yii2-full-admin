@@ -20,6 +20,7 @@
         }
     },
     "extra": {
-        "bootstrap":"nullref\\fulladmin\\Bootstrap"
+        "bootstrap":"nullref\\fulladmin\\Bootstrap",
+        "installer":"nullref\\fulladmin\\Installer"
     }
 }

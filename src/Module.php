@@ -20,25 +20,7 @@ class Module extends BaseModule implements IAdminModule
 
     public $defaultRoute = 'main';
 
-    public $adminComponent = 'admin';
-
-    public $adminModel = 'nullref\fulladmin\models\Admin';
-
-    public $enableRbac = false;
-
     public $globalWidgets = [];
-
-    /** @var array */
-    public $authManager = [
-        'class' => 'yii\rbac\PhpManager',
-        'itemFile' => '@app/rbac/admin_items.php',
-        'assignmentFile' => '@app/rbac/admin_assignments.php',
-        'ruleFile' => '@app/rbac/admin_rules.php',
-    ];
-
-    public $roleContainer = [
-        'class' => 'nullref\fulladmin\components\RoleContainer',
-    ];
 
     public static function getAdminMenu()
     {

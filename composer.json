@@ -1,5 +1,5 @@
 {
-    "name": "nullref/yii2-admin",
+    "name": "nullref/yii2-full-admin",
     "type": "yii2-extension",
     "license": "MIT",
     "minimum-stability": "dev",

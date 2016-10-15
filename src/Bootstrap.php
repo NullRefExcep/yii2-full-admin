@@ -36,7 +36,7 @@ class Bootstrap implements BootstrapInterface
         if (!isset($app->get('i18n')->translations['admin*'])) {
             $app->i18n->translations['admin*'] = [
                 'class' => PhpMessageSource::className(),
-                'basePath' => '@nullref/admin/messages',
+                'basePath' => 'nullref/fulladmin/messages',
             ];
         }
 
@@ -69,13 +69,13 @@ class Bootstrap implements BootstrapInterface
                 $gii->generators['crud'] = [
                     'class' => 'yii\gii\generators\crud\Generator',
                     'templates' => [
-                        'admin-crud' => '@nullref/admin/generators/crud/admin',
+                        'admin-crud' => 'nullref/fulladmin/generators/crud/admin',
                     ]
                 ];
                 $gii->generators['stuff'] = [
                     'class' => 'nullref\fulladmin\generators\stuff\Generator',
                     'templates' => [
-                        'default' => '@nullref/admin/generators/stuff/default',
+                        'default' => 'nullref/fulladmin/generators/stuff/default',
                     ]
                 ];
             });

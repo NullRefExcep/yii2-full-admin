@@ -8,18 +8,27 @@
 namespace nullref\fulladmin\modules\user;
 
 
+use dektrium\user\Module as BaseModule;
 use nullref\core\interfaces\IAdminModule;
 use Yii;
 
-class Module extends \dektrium\user\Module implements IAdminModule
+class Module extends BaseModule implements IAdminModule
 {
-
     public static function getAdminMenu()
     {
         return [
             'label' => Yii::t('admin', 'Users'),
             'url' => ['/user/admin'],
             'icon' => 'users',
+            'order' => 1,
         ];
+    }
+
+    public function init()
+    {
+        parent::init();
+        $this->controllerMap = array_merge([
+            'admin' => 'nullref\fulladmin\modules\user\controllers\AdminController',
+        ], $this->controllerMap);
     }
 }

@@ -2,13 +2,11 @@
 
 namespace nullref\fulladmin\controllers;
 
+use dektrium\user\filters\AccessRule;
 use nullref\fulladmin\components\AdminController;
-use nullref\fulladmin\models\Admin;
 use nullref\fulladmin\models\LoginForm;
-use nullref\fulladmin\models\PasswordResetForm;
 use Yii;
-use nullref\fulladmin\components\AccessControl;
-use yii\web\NotFoundHttpException;
+use yii\filters\AccessControl;
 use yii\web\Response;
 
 /**
@@ -35,9 +33,10 @@ class MainController extends AdminController
                         'roles' => ['?', '@'],
                     ],
                     [
+                        'class' => AccessRule::className(),
                         'actions' => ['index', 'logout'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['admin'],
                     ],
                 ],
             ],
@@ -62,15 +61,11 @@ class MainController extends AdminController
     {
         $this->layout = 'base';
 
-        $model = new LoginForm();
-
-        if (!Yii::$app->get('admin')->isGuest) {
-            return $this->redirect($this->dashboardPage);
-        }
+        /** @var LoginForm $model */
+        $model = Yii::createObject(LoginForm::className());
 
         if ($model->load(\Yii::$app->request->post())) {
-            if ($model->validate()) {
-                $model->login();
+            if ($model->validate() && $model->login()) {
                 return $this->redirect($this->dashboardPage);
             } else {
                 if (Yii::$app->request->isAjax) {

@@ -7,7 +7,7 @@ use nullref\core\widgets\WidgetContainer;
 
 ?>
 
-<?php $this->beginContent('@nullref/admin/views/layouts/base.php') ?>
+<?php $this->beginContent('@nullref/fulladmin/views/layouts/base.php') ?>
     <div id="wrapper">
 
         <?= $this->render('header') ?>
@@ -22,4 +22,4 @@ use nullref\core\widgets\WidgetContainer;
     <!-- /#wrapper -->
 <?= WidgetContainer::widget(['widgets' => Yii::$app->getModule('admin')->globalWidgets]) ?>
 
-<?php $this->endContent('@nullref/admin/views/layouts/base.php') ?>
+<?php $this->endContent('@nullref/fulladmin/views/layouts/base.php') ?>

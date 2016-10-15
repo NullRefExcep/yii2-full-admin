@@ -28,13 +28,14 @@ class Module extends BaseModule implements IAdminModule
             'label' => Yii::t('admin', 'Dashboard'),
             'url' => ['/admin/main'],
             'icon' => 'dashboard',
+            'order' => 0,
         ];
     }
 
     public function init()
     {
         parent::init();
-        $this->setLayoutPath('@vendor/nullref/yii2-admin/src/views/layouts');
+        $this->setLayoutPath('@vendor/nullref/yii2-full-admin/src/views/layouts');
         if ((($builder = $this->get('menuBuilder', false)) !== null) && (!($builder instanceof IMenuBuilder))) {
             throw new InvalidConfigException('Menu builder must implement IMenuBuilder interface');
         }

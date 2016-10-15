@@ -18,6 +18,13 @@ class Installer extends ModuleInstaller
 
     public function install()
     {
+        if ($this->runModuleMigrations || \Yii::$app->controller->confirm('Run user module migrations')) {
+            \Yii::$app->runAction('migrate/up', ['all',
+                'migrationPath' => '@vendor/dektrium/yii2-user/migrations',
+                'interactive' => false,
+            ]);
+        }
+
         parent::install();
         if (Console::confirm('Create assets files?')) {
             try {
@@ -38,9 +45,23 @@ class Installer extends ModuleInstaller
         $config = require($path);
 
         $config['admin'] = $this->getConfigArray();
-        $config['user'] = ['class' => 'dektrium\user\Module'];
+        $config['user'] = [
+            'class' => 'nullref\fulladmin\modules\user\Module',
+        ];
 
         $this->writeArrayToFile($this->getConfigPath(), $config);
+    }
+
+    public function uninstall()
+    {
+        parent::uninstall();
+
+        if ($this->runModuleMigrations || \Yii::$app->controller->confirm('Run down user module migrations')) {
+            \Yii::$app->runAction('migrate/down', ['all',
+                'migrationPath' => '@vendor/dektrium/yii2-user/migrations',
+                'interactive' => false,
+            ]);
+        }
     }
 
 }

@@ -1,12 +1,10 @@
 <?php
 
 use dektrium\user\models\User;
-use nullref\fulladmin\models\Admin;
 use yii\db\Migration;
-use yii\db\Schema;
-use yii\rbac\BaseManager;
+use yii\helpers\Console;
 
-class m000000_000001_create_admin_user extends Migration
+class m000000_000002_create_admin_user extends Migration
 {
     public function up()
     {
@@ -16,22 +14,24 @@ class m000000_000001_create_admin_user extends Migration
             'email' => 'admin@test.com',
             'username' => 'admin',
             'password' => 'password',
+            'is_admin' => true,
         ]);
 
         if ($user->create()) {
-            $this->stdout(Yii::t('admin', 'User has been created') . "!\n", Console::FG_GREEN);
+            Console::output(Yii::t('admin', 'User has been created'));
         }
 
-        $this->stdout("Username: 'admin'\n");
-        $this->stdout("Password: 'password'\n");
+        Console::output("Username: 'admin'");
+        Console::output("Password: 'password'");
 
     }
 
     public function down()
     {
-        $admin = User::find()->andWhere(['username' => 'admin']);
+        $admin = User::find()->andWhere(['username' => 'admin'])->one();
         if ($admin !== null) {
             $admin->delete();
+            Console::output('Admin user was deleted');
         }
         return true;
     }

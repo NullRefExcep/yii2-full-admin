@@ -21,7 +21,7 @@ $this->title = Yii::t('admin', 'Sign in');
                         <?php $form = ActiveForm::begin(); ?>
                         <fieldset>
 
-                            <?= $form->field($model, 'username', [
+                            <?= $form->field($model, 'login', [
                                 'template' => '<div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>{input}</div>{hint}{error}'
                             ])->textInput([
                                 'placeholder' => ArrayHelper::getValue($model->attributeLabels(), 'username')

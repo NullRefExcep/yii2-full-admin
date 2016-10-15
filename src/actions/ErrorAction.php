@@ -6,11 +6,7 @@
 
 namespace nullref\fulladmin\actions;
 
-use nullref\fulladmin\Module;
-use Yii;
 use yii\web\ErrorAction as BaseErrorAction;
-use yii\web\IdentityInterface;
-use yii\web\User;
 
 class ErrorAction extends BaseErrorAction
 {
@@ -19,17 +15,8 @@ class ErrorAction extends BaseErrorAction
      */
     protected function beforeRun()
     {
-        /** @var Module $module */
-        $module = Yii::$app->getModule('admin');
+        $this->controller->layout = '@vendor/nullref/yii2-full-admin/src/views/layouts/error';
 
-        /** @var User $user */
-        $user = Yii::$app->get($module->adminComponent);
-
-        if ($user->isGuest) {
-            $this->controller->layout = '@nullref/admin/views/layouts/error';
-        }
         return parent::beforeRun();
     }
-
-
 }

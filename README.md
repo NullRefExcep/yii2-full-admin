@@ -1,8 +1,8 @@
 Yii2 Full Admin
 ===============
-[![Latest Stable Version](https://poser.pugx.org/nullref/yii2-full-admin/v/stable)](https://packagist.org/packages/nullref/yii2-full-admin) [![Total Downloads](https://poser.pugx.org/nullref/yii2-admin/downloads)](https://packagist.org/packages/nullref/yii2-full-admin) [![Latest Unstable Version](https://poser.pugx.org/nullref/yii2-full-admin/v/unstable)](https://packagist.org/packages/nullref/yii2-full-admin) [![License](https://poser.pugx.org/nullref/yii2-full-admin/license)](https://packagist.org/packages/nullref/yii2-full-admin)
+[![Latest Stable Version](https://poser.pugx.org/nullref/yii2-full-admin/v/stable)](https://packagist.org/packages/nullref/yii2-full-admin) [![Total Downloads](https://poser.pugx.org/nullref/yii2-full-admin/downloads)](https://packagist.org/packages/nullref/yii2-full-admin) [![Latest Unstable Version](https://poser.pugx.org/nullref/yii2-full-admin/v/unstable)](https://packagist.org/packages/nullref/yii2-full-admin) [![License](https://poser.pugx.org/nullref/yii2-full-admin/license)](https://packagist.org/packages/nullref/yii2-full-admin)
 
-Module for administration with user managment
+Module for administration with user management
 
 Installation
 ------------
@@ -12,13 +12,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist nullref/yii2-admin "*"
+php composer.phar require --prefer-dist nullref/yii2-full-admin "*"
 ```
 
 or add
 
 ```
-"nullref/yii2-admin": "*"
+"nullref/yii2-full-admin": "*"
 ```
 
 to the require section of your `composer.json` file.

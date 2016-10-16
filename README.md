@@ -1,8 +1,8 @@
-Yii2 Admin
+Yii2 Full Admin
 ===============
-[![Latest Stable Version](https://poser.pugx.org/nullref/yii2-admin/v/stable)](https://packagist.org/packages/nullref/yii2-admin) [![Total Downloads](https://poser.pugx.org/nullref/yii2-admin/downloads)](https://packagist.org/packages/nullref/yii2-admin) [![Latest Unstable Version](https://poser.pugx.org/nullref/yii2-admin/v/unstable)](https://packagist.org/packages/nullref/yii2-admin) [![License](https://poser.pugx.org/nullref/yii2-admin/license)](https://packagist.org/packages/nullref/yii2-admin)
+[![Latest Stable Version](https://poser.pugx.org/nullref/yii2-full-admin/v/stable)](https://packagist.org/packages/nullref/yii2-full-admin) [![Total Downloads](https://poser.pugx.org/nullref/yii2-admin/downloads)](https://packagist.org/packages/nullref/yii2-full-admin) [![Latest Unstable Version](https://poser.pugx.org/nullref/yii2-full-admin/v/unstable)](https://packagist.org/packages/nullref/yii2-full-admin) [![License](https://poser.pugx.org/nullref/yii2-full-admin/license)](https://packagist.org/packages/nullref/yii2-full-admin)
 
-Module for administration
+Module for administration with user managment
 
 Installation
 ------------

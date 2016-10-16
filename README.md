@@ -26,8 +26,7 @@ to the require section of your `composer.json` file.
 Then You have run console command for install this module and run migrations:
 
 ```
-php yii module/install admin
-php yii modules-migrate
+php yii module/install nullref/yii2-full-admin
 ```
 
 ### Admin Menu
@@ -40,6 +39,7 @@ public static function getAdminMenu()
        return [
            'label' => \Yii::t('admin', 'Subscription'),
            'icon' => 'envelope',
+           'order' => 0,
            'items' => [
                'emails' => ['label' => \Yii::t('app', 'Subscribers'), 'icon' => 'envelope-o', 'url' => ['/subscription/email/index']],
                'messages' => ['label' => \Yii::t('app', 'Messages'), 'icon' => 'envelope-o', 'url' => ['/subscription/message/index']],
@@ -65,9 +65,7 @@ Example:
 
 'admin' => [
    'class' => 'nullref\admin\Module',
-   'adminModel' => 'app\models\Admin', // admin model class
    'controllerMap' => [  //controllers
-      'user' => 'app\modules\admin\controllers\UserController',
       'main' => 'app\modules\admin\controllers\MainController',
    ],
    'components' => [  //menu builder

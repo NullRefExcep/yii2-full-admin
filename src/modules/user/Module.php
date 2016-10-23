@@ -10,9 +10,10 @@ namespace nullref\fulladmin\modules\user;
 
 use dektrium\user\Module as BaseModule;
 use nullref\core\interfaces\IAdminModule;
+use nullref\core\interfaces\IHasMigrateNamespace;
 use Yii;
 
-class Module extends BaseModule implements IAdminModule
+class Module extends BaseModule implements IAdminModule, IHasMigrateNamespace
 {
     public $modelMap = [
         'User' => 'nullref\fulladmin\modules\user\models\User',
@@ -35,5 +36,10 @@ class Module extends BaseModule implements IAdminModule
         $this->controllerMap = array_merge([
             'admin' => 'nullref\fulladmin\modules\user\controllers\AdminController',
         ], $this->controllerMap);
+    }
+
+    public function getMigrationNamespaces($defaults)
+    {
+        return array_merge(['dektrium\user\migrations'], $defaults);
     }
 }

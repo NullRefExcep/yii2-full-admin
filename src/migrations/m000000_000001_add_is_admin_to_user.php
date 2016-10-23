@@ -1,8 +1,6 @@
 <?php
 
-use dektrium\user\models\User;
 use yii\db\Migration;
-use yii\helpers\Console;
 
 class m000000_000001_add_is_admin_to_user extends Migration
 {

@@ -1,8 +1,10 @@
 <?php
 
+namespace nullref\fulladmin\migrations;
+
 use yii\db\Migration;
 
-class m000000_000001_add_is_admin_to_user extends Migration
+class m151218_234655_add_is_admin_to_user extends Migration
 {
     public function up()
     {

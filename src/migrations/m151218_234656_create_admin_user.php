@@ -1,10 +1,13 @@
 <?php
 
+namespace nullref\fulladmin\migrations;
+
 use dektrium\user\models\User;
+use Yii;
 use yii\db\Migration;
 use yii\helpers\Console;
 
-class m000000_000002_create_admin_user extends Migration
+class m151218_234656_create_admin_user extends Migration
 {
     public function up()
     {

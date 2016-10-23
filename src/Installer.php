@@ -7,6 +7,7 @@
 namespace nullref\fulladmin;
 
 use nullref\core\components\ModuleInstaller;
+use nullref\core\console\MigrateController;
 use yii\helpers\Console;
 
 class Installer extends ModuleInstaller
@@ -19,8 +20,13 @@ class Installer extends ModuleInstaller
     public function install()
     {
         if ($this->runModuleMigrations || \Yii::$app->controller->confirm('Run user module migrations')) {
-            \Yii::$app->runAction('migrate/up', ['all',
-                'migrationPath' => '@vendor/dektrium/yii2-user/migrations',
+            \Yii::$app->getModule('core')->controllerMap['migrate'] = [
+                'class' => MigrateController::className(),
+                'migrationNamespaces' => [
+                    'nullref\fulladmin\modules\user\migrations',
+                ],
+            ];
+            \Yii::$app->runAction('core/migrate/up', ['all',
                 'interactive' => false,
             ]);
         }
@@ -39,6 +45,40 @@ class Installer extends ModuleInstaller
         }
     }
 
+    public function uninstall()
+    {
+        parent::uninstall();
+
+        if ($this->runModuleMigrations || \Yii::$app->controller->confirm('Run down user module migrations')) {
+            \Yii::$app->getModule('core')->controllerMap['migrate'] = [
+                'class' => MigrateController::className(),
+                'migrationNamespaces' => [
+                    'nullref\fulladmin\modules\user\migrations',
+                ],
+            ];
+            \Yii::$app->runAction('core/migrate/down', ['all',
+                'moduleId' => 'user',
+                'interactive' => false,
+            ]);
+        }
+    }
+
+    protected function removeFromConfig()
+    {
+        $path = $this->getConfigPath();
+        $config = require($path);
+
+        if (isset($config['user'])) {
+            unset($config['user']);
+        }
+
+        if (isset($config['admin'])) {
+            unset($config['admin']);
+        }
+        $this->writeArrayToFile($this->getConfigPath(), $config);
+    }
+
+
     protected function addToConfig()
     {
         $path = $this->getConfigPath();
@@ -50,18 +90,6 @@ class Installer extends ModuleInstaller
         ];
 
         $this->writeArrayToFile($this->getConfigPath(), $config);
-    }
-
-    public function uninstall()
-    {
-        parent::uninstall();
-
-        if ($this->runModuleMigrations || \Yii::$app->controller->confirm('Run down user module migrations')) {
-            \Yii::$app->runAction('migrate/down', ['all',
-                'migrationPath' => '@vendor/dektrium/yii2-user/migrations',
-                'interactive' => false,
-            ]);
-        }
     }
 
 }

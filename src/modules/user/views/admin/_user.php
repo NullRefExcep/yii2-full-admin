@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @var yii\widgets\ActiveForm      $form
- * @var dektrium\user\models\User   $user
+ * @var yii\widgets\ActiveForm $form
+ * @var dektrium\user\models\User $user
  */
 ?>
 

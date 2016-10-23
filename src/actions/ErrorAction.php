@@ -6,6 +6,8 @@
 
 namespace nullref\fulladmin\actions;
 
+namespace nullref\fulladmin\actions;
+
 use yii\web\ErrorAction as BaseErrorAction;
 
 class ErrorAction extends BaseErrorAction

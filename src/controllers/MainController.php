@@ -4,9 +4,9 @@ namespace nullref\fulladmin\controllers;
 
 use dektrium\user\filters\AccessRule;
 use nullref\fulladmin\components\AdminController;
+use nullref\fulladmin\filters\AccessControl;
 use nullref\fulladmin\models\LoginForm;
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\Response;
 
 /**

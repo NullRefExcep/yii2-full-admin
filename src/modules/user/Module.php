@@ -14,6 +14,11 @@ use Yii;
 
 class Module extends BaseModule implements IAdminModule
 {
+    public $modelMap = [
+        'User' => 'nullref\fulladmin\modules\user\models\User',
+        'UserSearch' => 'nullref\fulladmin\modules\user\models\UserSearch',
+    ];
+
     public static function getAdminMenu()
     {
         return [

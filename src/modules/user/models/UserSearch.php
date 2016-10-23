@@ -1,6 +1,6 @@
 <?php
 
-namespace nullref\fulladmin\modules\user;
+namespace nullref\fulladmin\modules\user\models;
 
 use yii\data\ActiveDataProvider;
 

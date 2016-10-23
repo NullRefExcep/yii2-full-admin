@@ -11,6 +11,7 @@ class m151218_234656_create_admin_user extends Migration
 {
     public function up()
     {
+        /** @var \nullref\fulladmin\modules\user\models\User $user */
         $user = Yii::createObject([
             'class' => User::className(),
             'scenario' => 'create',
@@ -19,6 +20,9 @@ class m151218_234656_create_admin_user extends Migration
             'password' => 'password',
             'is_admin' => true,
         ]);
+        $user->validate();
+
+        print_r($user->getErrors());
 
         if ($user->create()) {
             Console::output(Yii::t('admin', 'User has been created'));

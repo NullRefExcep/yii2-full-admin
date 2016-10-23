@@ -8,10 +8,20 @@ namespace nullref\fulladmin;
 
 use nullref\core\components\ModuleInstaller;
 use nullref\core\console\MigrateController;
+use nullref\fulladmin\modules\user\Installer as UserInstaller;
 use yii\helpers\Console;
 
 class Installer extends ModuleInstaller
 {
+    /** @var  UserInstaller */
+    protected $userInstaller;
+
+    public function init()
+    {
+        parent::init();
+        $this->userInstaller = new UserInstaller();
+    }
+
     public function getModuleId()
     {
         return 'admin';
@@ -19,18 +29,7 @@ class Installer extends ModuleInstaller
 
     public function install()
     {
-        if ($this->runModuleMigrations || \Yii::$app->controller->confirm('Run user module migrations')) {
-            \Yii::$app->getModule('core')->controllerMap['migrate'] = [
-                'class' => MigrateController::className(),
-                'migrationNamespaces' => [
-                    'nullref\fulladmin\modules\user\migrations',
-                ],
-            ];
-            \Yii::$app->runAction('core/migrate/up', ['all',
-                'interactive' => false,
-            ]);
-        }
-
+        $this->userInstaller->install();
         parent::install();
         if (Console::confirm('Create assets files?')) {
             try {
@@ -61,35 +60,8 @@ class Installer extends ModuleInstaller
                 'interactive' => false,
             ]);
         }
-    }
 
-    protected function removeFromConfig()
-    {
-        $path = $this->getConfigPath();
-        $config = require($path);
-
-        if (isset($config['user'])) {
-            unset($config['user']);
-        }
-
-        if (isset($config['admin'])) {
-            unset($config['admin']);
-        }
-        $this->writeArrayToFile($this->getConfigPath(), $config);
-    }
-
-
-    protected function addToConfig()
-    {
-        $path = $this->getConfigPath();
-        $config = require($path);
-
-        $config['admin'] = $this->getConfigArray();
-        $config['user'] = [
-            'class' => 'nullref\fulladmin\modules\user\Module',
-        ];
-
-        $this->writeArrayToFile($this->getConfigPath(), $config);
+        $this->userInstaller->uninstall();
     }
 
 }

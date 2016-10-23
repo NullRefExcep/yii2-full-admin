@@ -1,8 +1,8 @@
 <?php
 namespace nullref\fulladmin;
 
-use nullref\fulladmin\components\AccessControl;
-use nullref\fulladmin\models\AdminQuery;
+use dektrium\user\filters\AccessRule;
+use nullref\fulladmin\filters\AccessControl;
 use yii\base\Module as BaseModule;
 use nullref\core\interfaces\IAdminController;
 use Yii;
@@ -10,7 +10,6 @@ use yii\base\Application;
 use yii\base\BootstrapInterface;
 use yii\base\Controller;
 use yii\base\Event;
-use yii\console\Application as ConsoleApplication;
 use yii\gii\Module as Gii;
 use yii\i18n\PhpMessageSource;
 use yii\web\Application as WebApplication;
@@ -54,6 +53,18 @@ class Bootstrap implements BootstrapInterface
                     $controller->layout = $module->layout;
                     if ($controller->module != $module) {
                         $controller->module->setLayoutPath($module->getLayoutPath());
+                    }
+                    if (!isset($controller->behaviors()['access'])) {
+                        $controller->attachBehavior('access', [
+                            'class' => AccessControl::className(),
+                            'rules' => [
+                                [
+                                    'class' => AccessRule::className(),
+                                    'allow' => true,
+                                    'roles' => ['admin'],
+                                ],
+                            ],
+                        ]);
                     }
                     Yii::$app->errorHandler->errorAction = $module->errorAction;
                 }

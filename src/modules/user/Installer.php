@@ -22,7 +22,10 @@ class Installer extends ModuleInstaller
         $config = parent::getConfigArray();
         $config['controllerMap'] = [
             'admin' => 'nullref\fulladmin\modules\user\controllers\AdminController',
-            'registration' => 'dektrium\user\controllers\RegistrationController',
+            'registration' => [
+                'class' => 'dektrium\user\controllers\RegistrationController',
+                'viewPath' => '@dektrium/user/views/registration',
+            ],
         ];
         return $config;
     }

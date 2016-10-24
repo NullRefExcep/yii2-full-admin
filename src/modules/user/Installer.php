@@ -16,4 +16,16 @@ class Installer extends ModuleInstaller
     {
         return 'user';
     }
+
+    protected function getConfigArray()
+    {
+        $config = parent::getConfigArray();
+        $config['controllerMap'] = [
+            'admin' => 'nullref\fulladmin\modules\user\controllers\AdminController',
+            'registration' => 'dektrium\user\controllers\RegistrationController',
+        ];
+        return $config;
+    }
+
+
 }

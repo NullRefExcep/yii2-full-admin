@@ -28,12 +28,4 @@ class Module extends BaseModule implements IAdminModule
             'order' => 1,
         ];
     }
-
-    public function init()
-    {
-        parent::init();
-        $this->controllerMap = array_merge([
-            'admin' => 'nullref\fulladmin\modules\user\controllers\AdminController',
-        ], $this->controllerMap);
-    }
 }

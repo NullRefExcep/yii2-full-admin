@@ -35,10 +35,11 @@ use yii\jui\DatePicker;
 ]); ?>
 
 <?= $form->field($profile, 'name') ?>
-<?= $form->field($profile, 'last_name') ?>
-<?= $form->field($profile, 'title')->dropDownList(['Mr.' => 'Mr.', 'Mrs.' => 'Mrs.']) ?>
-<?= $form->field($profile, 'city') ?>
-<?= $form->field($profile, 'street') ?>
+<?= $form->field($profile, 'public_email') ?>
+<?= $form->field($profile, 'website') ?>
+<?= $form->field($profile, 'location') ?>
+<?= $form->field($profile, 'gravatar_email') ?>
+<?= $form->field($profile, 'bio')->textarea() ?>
 
 
 <div class="form-group">

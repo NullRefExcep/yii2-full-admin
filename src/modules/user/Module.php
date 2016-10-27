@@ -28,4 +28,17 @@ class Module extends BaseModule implements IAdminModule
             'order' => 1,
         ];
     }
+
+    public function init()
+    {
+        $defaultControllerMap = (Yii::$app instanceof WebApplication) ? [
+            'admin' => 'nullref\fulladmin\modules\user\controllers\AdminController',
+            'registration' => [
+                'class' => 'dektrium\user\controllers\RegistrationController',
+                'viewPath' => '@dektrium/user/views/registration',
+            ],
+        ] : [];
+        $this->controllerMap = array_merge($defaultControllerMap, $this->controllerMap);
+        parent::init();
+    }
 }

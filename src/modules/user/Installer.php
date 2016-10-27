@@ -16,19 +16,4 @@ class Installer extends ModuleInstaller
     {
         return 'user';
     }
-
-    protected function getConfigArray()
-    {
-        $config = parent::getConfigArray();
-        $config['controllerMap'] = [
-            'admin' => 'nullref\fulladmin\modules\user\controllers\AdminController',
-            'registration' => [
-                'class' => 'dektrium\user\controllers\RegistrationController',
-                'viewPath' => '@dektrium/user/views/registration',
-            ],
-        ];
-        return $config;
-    }
-
-
 }

@@ -79,7 +79,7 @@ class MainController extends AdminController
 
     public function actionLogout()
     {
-        Yii::$app->get('admin')->logout();
+        Yii::$app->getUser()->logout();
 
         return $this->goHome();
     }

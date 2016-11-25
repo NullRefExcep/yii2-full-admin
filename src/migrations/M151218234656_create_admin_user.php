@@ -1,11 +1,13 @@
 <?php
 
+namespace nullref\fulladmin\migrations;
+
 use dektrium\user\models\User;
 use Yii;
 use yii\db\Migration;
 use yii\helpers\Console;
 
-class m151218_234656_create_admin_user extends Migration
+class M151218234656_create_admin_user extends Migration
 {
     public function up()
     {
@@ -19,9 +21,7 @@ class m151218_234656_create_admin_user extends Migration
             'is_admin' => true,
         ]);
         $user->validate();
-
-        print_r($user->getErrors());
-
+        
         if ($user->create()) {
             Console::output(Yii::t('admin', 'User has been created'));
         }

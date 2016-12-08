@@ -1,7 +1,5 @@
 <?php
 
-use Exception;
-use Yii;
 use yii\db\Migration;
 use yii\db\Query;
 use yii\db\Schema;

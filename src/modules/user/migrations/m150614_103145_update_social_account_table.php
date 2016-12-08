@@ -1,10 +1,6 @@
 <?php
 
-namespace nullref\fulladmin\modules\user\migrations;
-
 use dektrium\user\migrations\Migration;
-use Exception;
-use Yii;
 use yii\db\Query;
 use yii\db\Schema;
 

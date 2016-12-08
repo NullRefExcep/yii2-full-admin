@@ -1,7 +1,6 @@
 <?php
 
 use dektrium\user\models\User;
-use Yii;
 use yii\db\Migration;
 use yii\helpers\Console;
 

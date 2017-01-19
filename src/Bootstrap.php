@@ -80,13 +80,13 @@ class Bootstrap implements BootstrapInterface
                 $gii->generators['crud'] = [
                     'class' => 'yii\gii\generators\crud\Generator',
                     'templates' => [
-                        'admin-crud' => 'nullref/fulladmin/generators/crud/admin',
+                        'admin-crud' => '@nullref/fulladmin/generators/crud/admin',
                     ]
                 ];
                 $gii->generators['stuff'] = [
                     'class' => 'nullref\fulladmin\generators\stuff\Generator',
                     'templates' => [
-                        'default' => 'nullref/fulladmin/generators/stuff/default',
+                        'default' => '@nullref/fulladmin/generators/stuff/default',
                     ]
                 ];
             });

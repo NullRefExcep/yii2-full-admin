@@ -108,10 +108,14 @@ class M140209132017Init extends Migration
 
         $this->addColumn('{{%profile}}', 'timezone', Schema::TYPE_STRING . '(40)');
 
+        $this->addColumn('{{%user}}', 'last_login_at', $this->integer());
+
     }
 
     public function down()
     {
+        $this->dropColumn('{{%user}}', 'last_login_at');
+
         $this->dropColumn('{{%profile}}', 'timezone');
 
         if (\Yii::$app->db->driverName == "pgsql") {

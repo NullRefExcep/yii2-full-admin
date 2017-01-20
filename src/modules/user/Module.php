@@ -37,6 +37,10 @@ class Module extends BaseModule implements IAdminModule
                 'class' => 'dektrium\user\controllers\RegistrationController',
                 'viewPath' => '@dektrium/user/views/registration',
             ],
+            'security' => [
+                'class' => 'dektrium\user\controllers\SecurityController',
+                'viewPath' => '@dektrium/user/views/security',
+            ],
         ] : [];
         $this->controllerMap = array_merge($defaultControllerMap, $this->controllerMap);
         parent::init();

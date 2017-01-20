@@ -9,6 +9,7 @@ namespace nullref\fulladmin\modules\user;
 
 
 use dektrium\user\Module as BaseModule;
+use yii\web\Application as WebApplication;
 use nullref\core\interfaces\IAdminModule;
 use Yii;
 

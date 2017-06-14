@@ -1,4 +1,5 @@
 <?php
+
 namespace nullref\fulladmin;
 
 use dektrium\user\filters\AccessRule;
@@ -51,7 +52,7 @@ class Bootstrap implements BootstrapInterface
                     $controller = Yii::$app->controller;
 
                     $controller->layout = $module->layout;
-                    if ($controller->module != $module) {
+                    if ($controller->module !== $module) {
                         $controller->module->setLayoutPath($module->getLayoutPath());
                     }
                     if (!isset($controller->behaviors()['access'])) {

@@ -28,6 +28,15 @@ Then You have run console command for install this module and run migrations:
 ```
 php yii module/install nullref/yii2-full-admin
 ```
+Also, you have to add `\nullref\fulladmin\Bootstrap` class to bootstrap:
+```php
+//config
+    'bootstrap' => [
+        //..
+        \nullref\fulladmin\Bootstrap::class,
+        //...
+    ],
+```
 
 ### Admin Menu
 

@@ -20,6 +20,12 @@
             "nullref\\fulladmin\\": "src/"
         }
     },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
     "extra": {
         "bootstrap":"nullref\\fulladmin\\Bootstrap",
         "installer":"nullref\\fulladmin\\Installer"

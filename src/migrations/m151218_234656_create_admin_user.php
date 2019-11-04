@@ -17,7 +17,7 @@ class m151218_234656_create_admin_user extends Migration
             'password' => 'password',
             'is_admin' => true,
         ]);
-        $validationAttributes = ['email', 'username', 'password', 'is_admin'];
+        $validationAttributes = array_keys($user->attributes);
         if ($user->createCustom(true, $validationAttributes)) {
             Console::output(Yii::t('admin', 'User has been created'));
         }

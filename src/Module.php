@@ -22,6 +22,8 @@ class Module extends BaseModule implements IAdminModule
 
     public $globalWidgets = [];
 
+    public $headerWidgets = [];
+
     public static function getAdminMenu()
     {
         return [

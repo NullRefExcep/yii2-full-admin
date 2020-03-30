@@ -2,9 +2,9 @@
 
 namespace nullref\fulladmin;
 
-use nullref\fulladmin\interfaces\IMenuBuilder;
 use nullref\core\components\Module as BaseModule;
 use nullref\core\interfaces\IAdminModule;
+use nullref\fulladmin\interfaces\IMenuBuilder;
 use Yii;
 use yii\base\InvalidConfigException;
 
@@ -31,6 +31,7 @@ class Module extends BaseModule implements IAdminModule
             'url' => ['/admin/main'],
             'icon' => 'dashboard',
             'order' => 0,
+            'roles' => ['admin.dashboard'],
         ];
     }
 

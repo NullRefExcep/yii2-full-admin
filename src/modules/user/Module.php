@@ -27,6 +27,7 @@ class Module extends BaseModule implements IAdminModule
             'url' => ['/user/admin'],
             'icon' => 'users',
             'order' => 1,
+            'roles' => ['admin.user'],
         ];
     }
 

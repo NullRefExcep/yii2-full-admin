@@ -22,6 +22,16 @@ class User extends BaseUser
     }
 
     /**
+     * @return array
+     */
+    public function rules()
+    {
+        $rules = parent::rules();
+        $rules['isAdminBoolean'] = ['is_admin', 'boolean'];
+        return $rules;
+    }
+
+    /**
      * Avoid validation issue
      *
      * @param bool $runValidation

@@ -11,6 +11,6 @@ class MenuAsset extends AssetBundle
         'css/side-sub-menu.css',
     ];
     public $js = [
-        'js/submenu.js'
+        'js/menu.js'
     ];
 }

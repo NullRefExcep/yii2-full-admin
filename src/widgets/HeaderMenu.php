@@ -35,6 +35,7 @@ class HeaderMenu extends Widget
      */
     public function run()
     {
+        $content = [];
         foreach ($this->items as $key => $widget) {
             $content[$key] = $this->getWigetHtml($widget, $key);
         }
